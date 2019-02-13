@@ -4,7 +4,8 @@ class ConversationsController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        pdf = WickedPdf.new.pdf_from_string(render_to_string(pdf: "test.pdf", template:  "conversations/show.html.erb", encoding: "UTF-8"))
+        content = @conversation.lines.map(&:content).join("\n")
+        pdf = WickedPdf.new.pdf_from_string(content)
           send_data(pdf,                                  #3
           filename: 'download.pdf',                     #4
           type: 'application/pdf',                      #5
