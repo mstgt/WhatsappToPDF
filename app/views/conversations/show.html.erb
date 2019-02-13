@@ -1,4 +1,7 @@
+
+<%= link_to("download", "/conversations/#{@conversation.id}.pdf")%>
+
 <% @conversation.lines.each do |line| %>
-   <div><%= line.content %><%= link_to("edit", edit_line_path(line))%></div>
+  <div><%= line.content %><%= link_to("edit", edit_line_path(line))%></div>
 <% end %>    
 
