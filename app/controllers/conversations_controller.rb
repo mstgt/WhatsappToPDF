@@ -4,13 +4,16 @@ class ConversationsController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        content = @conversation.lines.map(&:content).join("\n")
+        content = @conversation.lines.map(&:print_ready).join
+        #content = render_to_string(template: "/conversations/show.html.erb", layout: "/layouts/application.html.erb")
         pdf = WickedPdf.new.pdf_from_string(content)
+        
           send_data(pdf,                                  #3
           filename: 'download.pdf',                     #4
           type: 'application/pdf',                      #5
-          disposition: 'attachment') 
-        # render pdf: "my_pdf",   # Excluding ".pdf" extension.
+          disposition: 'attachment',
+          encoding: "UTF-8")
+          #render pdf: "my_pdf",   # Excluding ".pdf" extension.
         # template: "conversations/show.html.erb"
     
       end
@@ -37,7 +40,7 @@ class ConversationsController < ApplicationController
   end
 
     def create
-      convo = Conversation.create(content: params[:conversation][:content].open.read)
+      convo = Conversation.create(content: params[:conversation][:content].open.read, user_id: current_user.id ) 
       
       #save each line
       convo.content.split("\n").each_with_index do |line, i|

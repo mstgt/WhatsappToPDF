@@ -3,14 +3,5 @@
 
 <div class="container-fluid">
   <h1>Save your memories in PDF!</h1>
-  <div class="row">
-    <div class="col-sm-4" style="background-color:#dcf8c6;">
-      <p><%= link_to "Add your Whatsapp conversation", new_conversation_path %></p>
-    </div>
-    <div class="col-sm-8" style="background-color:#ece5dd;">
-      <p>Here are your Conversations! <br><% Conversation.all.each do |c| %>
-        <li><%= link_to c.id, conversation_path(c) %></li>
-    <% end %></p>
-    </div>
-  </div>
+  Sign up for printing your memories in PDF. 
 </div>
