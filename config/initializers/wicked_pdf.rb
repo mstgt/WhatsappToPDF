@@ -23,7 +23,7 @@
 
 
 if Rails.env.production?
-  wkhtmltopdf_path = Rails.root + "/bin/wkhtml_production"
+  wkhtmltopdf_path = Gem.bin_path('wkhtmltopdf-heroku', 'wkhtmltopdf-linux-amd64')
 else
   # Linux (check your processor for Intel x86 or AMD x64)
   # wkhtmltopdf_path = "#{Rails.root}/bin/wkhtmltopdf-amd64"

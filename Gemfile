@@ -44,6 +44,7 @@ end
 
 group :production do
   gem 'pg'
+  gem 'wkhtmltopdf-heroku'
 end    
 
 group :development do
