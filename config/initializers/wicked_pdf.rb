@@ -33,5 +33,5 @@ else
   # Windows
   wkhtmltopdf_path = 'C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe'
 end
-
+wkhtmltopdf_path = "#{Rails.root}/bin/wkhtml_production.deb"
  WickedPdf.config = { exe_path: wkhtmltopdf_path, wkhtmltopdf: wkhtmltopdf_path }
