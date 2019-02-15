@@ -23,7 +23,7 @@
 
 
 if Rails.env.production?
-  wkhtmltopdf_path = Rails.root + "/bin/wkhtml_production.deb"
+  wkhtmltopdf_path = Rails.root + "/bin/wkhtml_production"
 else
   # Linux (check your processor for Intel x86 or AMD x64)
   # wkhtmltopdf_path = "#{Rails.root}/bin/wkhtmltopdf-amd64"
@@ -31,7 +31,7 @@ else
   # OS X
   #wkhtmltopdf_path = "#{Rails.root}/bin/wkhtmltopdf-0.9.9-OS-X.i386"            
   # Windows
-  wkhtmltopdf_path = 'C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe'
+  wkhtmltopdf_path = 'C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf'
 end
 
  WickedPdf.config = { exe_path: wkhtmltopdf_path, wkhtmltopdf: wkhtmltopdf_path }
