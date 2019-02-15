@@ -10,8 +10,8 @@
       <div class="row">
 
         <div class="col-sm-12 text-center" style="background-color:#ece5dd;">
-            <p>Here are your Conversations! <br><% Conversation.all.where(user_id: current_user.id).each do |c| %>
-                <li><%= link_to c.id, conversation_path(c) %></li>
+            <p>Here are your Conversations! <br><% Conversation.all.where(user_id:current_user.id).each do |c| %>
+                <li><%= link_to c.lines.first.content, conversation_path(c) %></li>
             <% end %></p>
         </div>
       </div>  
